@@ -38,7 +38,7 @@ Execute the approved plan exactly as written.
 
 ## Input
 
-### Artifact
+### Input Artifact
 
 - **File:** `implementation-plan.md`
 - **Location:** `.rpi/<task-id>/implementation-plan.md`
@@ -46,7 +46,7 @@ Execute the approved plan exactly as written.
 
 ## Output
 
-### Artifact
+### Output Artifact
 
 - **File:** `implementation-report.md`
 - **Location:** `.rpi/<task-id>/implementation-report.md`
@@ -99,6 +99,43 @@ Execute the approved plan exactly as written.
 | Decision | Context | Step |
 |----------|---------|------|
 ```
+
+## Technical Standards
+
+All code produced must meet the following standards. These are not aspirational — they are mandatory constraints.
+
+### SOLID Principles
+
+- **Single Responsibility:** Each module, class or function addresses one concern. If a change requires touching multiple concerns, split them.
+- **Open/Closed:** Do not modify existing working code to add behavior. Extend through composition, abstraction or configuration.
+- **Liskov Substitution:** Any subtype must work as a drop-in replacement for its parent without altering correctness.
+- **Interface Segregation:** Do not force consumers to depend on methods they do not use.
+- **Dependency Inversion:** Depend on abstractions. Inject dependencies rather than instantiating them internally.
+
+### Code Quality Requirements
+
+- Names must be explicit and intention-revealing. No abbreviations, no ambiguous identifiers.
+- Functions do one thing. If the body exceeds a reasonable length or handles multiple concerns, refactor.
+- Error handling is explicit. No empty catch blocks, no swallowed exceptions, no ignored return values.
+- Side effects must be obvious from the function name or signature.
+- Prefer immutability. Mutate state only when strictly necessary.
+- No dead code. Do not leave commented-out blocks, unused imports or unreachable branches.
+
+### Prohibited Patterns
+
+The following must not appear in produced code:
+
+- God classes or god functions
+- Hardcoded values that should be configurable
+- Circular dependencies
+- Deep inheritance hierarchies (prefer composition)
+- Workarounds, hacks or TODO-driven placeholders
+- Copy-paste duplication instead of proper abstraction
+- Premature optimization that sacrifices readability
+- Magic numbers or magic strings without named constants
+- Tight coupling between unrelated modules
+
+If the plan step requires touching code that already contains these patterns, implement only what the step requires. Do not fix pre-existing issues unless the plan explicitly includes a step for it.
 
 ## Quality Criterion
 

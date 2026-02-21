@@ -41,7 +41,7 @@ Transform validated facts into a deterministic execution plan.
 
 ## Input
 
-### Artifact
+### Input Artifact
 
 - **File:** `research-summary.md`
 - **Location:** `.rpi/<task-id>/research-summary.md`
@@ -49,7 +49,7 @@ Transform validated facts into a deterministic execution plan.
 
 ## Output
 
-### Artifact
+### Output Artifact
 
 - **File:** `implementation-plan.md`
 - **Location:** `.rpi/<task-id>/implementation-plan.md`
@@ -93,6 +93,41 @@ Transform validated facts into a deterministic execution plan.
 ## Rollback Strategy
 <!-- How to revert if implementation fails partway through -->
 ```
+
+## Technical Standards
+
+Every plan must assume the following engineering standards as non-negotiable constraints. These are not optional guidelines — they are presuppositions that the Implement Agent will follow.
+
+### SOLID Principles
+
+- **Single Responsibility:** Each module, class or function addresses one concern.
+- **Open/Closed:** Extend behavior through composition or abstraction, not by modifying existing code.
+- **Liskov Substitution:** Subtypes must be substitutable for their base types without breaking behavior.
+- **Interface Segregation:** Depend on narrow, specific interfaces — not broad ones.
+- **Dependency Inversion:** Depend on abstractions, not concrete implementations.
+
+### Code Quality Expectations
+
+- Naming must be explicit and intention-revealing. No abbreviations, no single-letter variables outside tight loops.
+- Functions must be short and do one thing. If a function needs a comment to explain what it does, it needs to be split.
+- Error handling must be explicit. No silent catches, no swallowed exceptions, no bare `except`.
+- Side effects must be obvious from the function signature or name.
+- Prefer immutability. Mutate state only when there is a clear reason.
+
+### Prohibited Patterns
+
+The plan must not introduce or rely on:
+
+- God classes or god functions
+- Hardcoded values that should be configurable
+- Circular dependencies
+- Deep inheritance hierarchies (prefer composition)
+- Workarounds, hacks or TODO-driven implementations
+- Copy-paste duplication instead of proper abstraction
+- Premature optimization that sacrifices readability
+- Magic numbers or magic strings without named constants
+
+If any of these patterns exist in the current codebase and the plan touches that area, the plan should include a step to address it — or explicitly flag it as out of scope with justification.
 
 ## Quality Criterion
 
