@@ -1,0 +1,15 @@
+{
+    "permissions": {
+      "allow": [
+        "Shell(cd)",
+        "Shell(make)",
+        "Shell(git)",
+        "Shell(cp)",
+        "Shell(mv)",
+        "Shell(mkdir)",
+        "Shell(touch)",
+        "Shell(ln)",
+        "Shell(pnpm)"
+      ]
+    }
+  }

@@ -1,0 +1,13 @@
+{
+    "permissions": {
+      "allow": [
+        "Shell(cd)",
+        "Shell(make)",
+        "Shell(git)",
+        "Shell(cp)",
+        "Shell(mv)",
+        "Shell(touch)"
+      ]
+    },
+    "model": "gpt-4o-mini"
+  }
